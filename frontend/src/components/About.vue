@@ -2,10 +2,16 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+      Hi! My name is Adam Weinberger, and I am a data scientist in the DC area. I have worked on dozens of data science projects professionally, personally, and academically. Some topics that I am especially interested in are:
+      <br>
+      <ul>
+        <li>AI / Machine Learning</li><br>
+        <li>Economics</li><br>
+        <li>Sports</li><br>
+      </ul>
     </p>
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
@@ -32,9 +38,19 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  data() {
+    return {
+      message: 'This is a message'
+    }
+  },
+  name: 'About',
   props: {
     msg: String
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
   }
 }
 </script>

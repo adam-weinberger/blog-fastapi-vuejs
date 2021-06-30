@@ -1,13 +1,21 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
+            <span v-bind:title="message">
+                Hover your mouse over me for a few seconds
+                to see my dynamically bound title!
+            </span>
             <button aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler"
                     data-target="#navbarNav" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="navbar-brand" href="/">Home</a>
                 <a class="navbar-brand" href="/">Blog</a>
+                <a class="navbar-brand">
+                        <router-link class="nav-link" :to="{name:'about'}">About</router-link>
+                </a>
                 <ul class="navbar-nav mr-auto" v-if="loggedIn()">
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'my-posts'}">My Posts</router-link>
@@ -40,6 +48,11 @@
 
 <script>
     export default {
+        data () {
+            return {
+                message: 'You loaded this page on ' + new Date().toLocaleString(),
+            }
+        },
         name: "Nav",
         computed: {
             userEmail() {

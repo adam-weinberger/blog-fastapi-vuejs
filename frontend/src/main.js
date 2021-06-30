@@ -13,6 +13,7 @@ import MyPosts from "./components/posts/MyPosts";
 import PublicPosts from "./components/posts/PublicPosts";
 import NewPost from "./components/posts/NewPost";
 import EditPost from "./components/posts/EditPost";
+import About from "./components/About"
 // import ListUser from './components/users/ListUser'
 
 
@@ -67,6 +68,11 @@ const routes = [
         name: 'edit-post',
         path: '/post/:id',
         component: EditPost
+    },
+    {
+        name: 'about',
+        path: '/about',
+        component: About
     }
 ]
 
