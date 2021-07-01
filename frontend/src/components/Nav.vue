@@ -8,6 +8,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/projects">Projects</a>
                 <a class="navbar-brand" href="/login">Blog</a>
                 <a class="navbar-brand">
                         <router-link class="nav-link" :to="{name:'about'}">About</router-link>

@@ -1,7 +1,6 @@
 <template>
     <div id="app">
         <Nav/>
-
         <transition name="fade">
             <div class="gap">
                 <div class="container mt-4 d-flex justify-content-center">

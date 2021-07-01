@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import NProgress from 'nprogress'
+// import ElementUI from 'element-ui'
 
 import App from './App.vue'
 import CreateUser from './components/users/Register'
@@ -15,6 +16,7 @@ import NewPost from "./components/posts/NewPost";
 import EditPost from "./components/posts/EditPost";
 import About from "./components/About"
 import Home from "./components/Home"
+import Home from "./components/Projects"
 // import ListUser from './components/users/ListUser'
 
 
@@ -25,6 +27,7 @@ Vue.use(VueAxios, axios.create({
         Authorization: `Bearer ${localStorage.getItem('actoken')}`
     }
 }))
+// Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
@@ -39,6 +42,11 @@ const routes = [
         name: 'Home',
         path: '/',
         component: Home
+    },
+    {
+        name: 'Projects',
+        path: '/Projects',
+        component: Projects
     },
     {
         name: 'login',
