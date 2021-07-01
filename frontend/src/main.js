@@ -3,8 +3,6 @@ import VueRouter from 'vue-router'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import NProgress from 'nprogress'
-import ElementUI from 'element-ui'
-import 'node_modules/element-ui/lib/theme-chalk/index.css'
 
 import App from './App.vue'
 import CreateUser from './components/users/Register'
@@ -27,7 +25,6 @@ Vue.use(VueAxios, axios.create({
         Authorization: `Bearer ${localStorage.getItem('actoken')}`
     }
 }))
-Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
