@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import AnyStr, Dict, List
 
 from bson.objectid import ObjectId
 from fastapi import APIRouter, HTTPException, Depends
@@ -117,3 +117,7 @@ async def add_post_comment_api(post_id: str, comment: CommentInSerializer,
     if not post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail="Post Not Found")
+
+@router.get("/test")
+async def test(response_model=AnyStr):
+    return 'test'

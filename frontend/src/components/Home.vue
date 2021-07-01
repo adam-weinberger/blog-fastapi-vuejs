@@ -10,8 +10,7 @@
         <li>Sports</li><br>
       </ul>
     </p>
-    <p>{{ message }}</p>
-    <button v-on:click="reverseMessage">Reverse Message</button>
+    <button v-on:click="testConnection">Test Connection</button>
   </div>
 </template>
 
@@ -27,8 +26,14 @@ export default {
     msg: String
   },
   methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
+    async testConnection() {
+      try {
+        await this.axios.get('/posts/test').then(response => {
+                this.posts = response.data
+            })
+      } catch (err) {
+        console.log(err)
+    }
     }
   }
 }

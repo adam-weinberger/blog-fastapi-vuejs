@@ -10,10 +10,11 @@ import EditUser from './components/users/EditUser'
 import Login from './components/auth/Login'
 import 'bootstrap/dist/css/bootstrap.css'
 import MyPosts from "./components/posts/MyPosts";
-import PublicPosts from "./components/posts/PublicPosts";
+// import PublicPosts from "./components/posts/PublicPosts"; 
 import NewPost from "./components/posts/NewPost";
 import EditPost from "./components/posts/EditPost";
 import About from "./components/About"
+import Home from "./components/Home"
 // import ListUser from './components/users/ListUser'
 
 
@@ -37,7 +38,7 @@ const routes = [
     {
         name: 'Home',
         path: '/',
-        component: PublicPosts
+        component: Home
     },
     {
         name: 'login',
