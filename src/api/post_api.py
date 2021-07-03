@@ -118,6 +118,3 @@ async def add_post_comment_api(post_id: str, comment: CommentInSerializer,
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail="Post Not Found")
 
-@router.get("/test")
-async def test(response_model=AnyStr):
-    return 'test'

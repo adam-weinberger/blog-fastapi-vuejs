@@ -16,7 +16,8 @@ import NewPost from "./components/posts/NewPost";
 import EditPost from "./components/posts/EditPost";
 import About from "./components/About"
 import Home from "./components/Home"
-import Home from "./components/Projects"
+import Projects from "./components/Projects"
+import ImageCaptions from "./components/ImageCaptions"
 // import ListUser from './components/users/ListUser'
 
 
@@ -47,6 +48,11 @@ const routes = [
         name: 'Projects',
         path: '/Projects',
         component: Projects
+    },
+    {
+        name: 'ImageCaptions',
+        path: '/ImageCaptions',
+        component: ImageCaptions
     },
     {
         name: 'login',

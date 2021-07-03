@@ -12,6 +12,7 @@
     </p>
     <p>{{ message }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
+    
   </div>
 </template>
 
@@ -27,7 +28,7 @@ export default {
     msg: String
   },
   methods: {
-    reverseMessage: function () {
+    reverseMessage() {
       this.message = this.message.split('').reverse().join('')
     }
   }

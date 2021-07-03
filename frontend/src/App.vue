@@ -6,7 +6,7 @@
                 <div class="container mt-4 d-flex justify-content-center">
                     <router-view></router-view>
                 </div>
-            </div>
+            </div> 
         </transition>
     </div>
 </template>

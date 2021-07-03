@@ -1,7 +1,8 @@
 from typing import List
+import logging
 
 from bson.objectid import ObjectId
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, File, UploadFile
 from marshmallow.exceptions import ValidationError
 from starlette import status
 from starlette.responses import JSONResponse
@@ -11,6 +12,16 @@ from src.serializers.user import UserInSerializer, UserSerializer
 from .auth_api import get_current_user
 
 router = APIRouter()
+
+
+@router.get("/test")
+async def test():
+    return {"message": "Hello World"}
+
+@router.post("/single-file")
+async def test(file: UploadFile = File(...)):
+    logging.info(file.filename)
+    return {"filename": file.filename}
 
 
 @router.get("", response_model=List[UserSerializer],

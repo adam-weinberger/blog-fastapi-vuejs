@@ -1,22 +1,12 @@
 <template>
   <div>
-    <div class="float-child">
-      Hi! My name is Adam Weinberger, and I am a data scientist in the DC area. I have worked on dozens of data science projects professionally, personally, and academically. Some topics that I am especially interested in are:
-      <br>
-      <br>
-      <ul>
-        <li>Machine learning</li>
-        <li>Economics</li>
-        <li>Sports</li>
-        <li>Traveling</li>
-      </ul>
-    </div>
-    <div class="float-child">
-      <img src="../assets/bangkok_temple.jpeg" alt="picture here" width="100%" :title="pictureMessage">
-    </div>
     <div>
       <button v-on:click="testConnection">Test</button> 
       {{ connectionMessage }}
+      <label>File
+        <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+      </label>
+        <button v-on:click="submitFile()">Submit</button>
     </div>
   </div>
 </template>
@@ -30,7 +20,7 @@ export default {
       file: '',
     }
   },
-  name: 'About',
+  name: 'ImageCaptions',
   props: {
     msg: String
   },
@@ -43,7 +33,30 @@ export default {
       } catch (err) {
         console.log(err)
       }
-    }
+    },
+    handleFileUpload() {
+      this.file = this.$refs.file.files[0]
+    },
+    submitFile(){
+      let formData = new FormData()
+      formData.append('file', this.file)
+
+      this.axios.post( '/users/single-file',
+          formData,
+          {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+          }
+        ).then(result => {
+          console.log('result ', result);
+          console.log('SUCCESS!!');
+        })
+        .catch(function(){
+          console.log('FAILURE!!');
+        })
+
+    },
   }
 }
 </script>
