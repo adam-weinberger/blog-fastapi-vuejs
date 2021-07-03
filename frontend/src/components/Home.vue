@@ -30,7 +30,7 @@ export default {
       file: '',
     }
   },
-  name: 'About',
+  name: 'Home',
   props: {
     msg: String
   },

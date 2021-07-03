@@ -1,5 +1,7 @@
 from typing import List
 import logging
+from pathlib import Path
+import aiofiles
 
 from bson.objectid import ObjectId
 from fastapi import APIRouter, HTTPException, Depends, File, UploadFile
@@ -21,6 +23,12 @@ async def test():
 @router.post("/single-file")
 async def test(file: UploadFile = File(...)):
     logging.info(file.filename)
+    f = open('test.txt', 'w')
+    f.write('test')
+    f.close()
+    # async with aiofiles.open(Path.parent / 'files' / file.filename, 'wb') as out_file:
+    #     content = await file.read()  # async read
+    #     await out_file.write(content)  # async write
     return {"filename": file.filename}
 
 
