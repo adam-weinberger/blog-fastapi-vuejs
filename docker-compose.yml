@@ -12,6 +12,7 @@ services:
       MONGODB_URI: mongodb://mongodbuser:mongodbpassword@mongodb:27017
     volumes:
       - ./src/:/home/app/backend/src
+      - ./files/:/home/app/backend/files
     env_file:
       - ./.env
     depends_on:

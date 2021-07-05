@@ -14,8 +14,8 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 # install vim
-RUN apt-get update
-RUN apt-get install vim
+RUN apt-get update && apt-get install -y vim
 
 # copy project
 COPY src ./src
+COPY files ./files

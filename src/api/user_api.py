@@ -23,12 +23,13 @@ async def test():
 @router.post("/single-file")
 async def test(file: UploadFile = File(...)):
     logging.info(file.filename)
-    f = open('test.txt', 'w')
-    f.write('test')
-    f.close()
-    # async with aiofiles.open(Path.parent / 'files' / file.filename, 'wb') as out_file:
-    #     content = await file.read()  # async read
-    #     await out_file.write(content)  # async write
+    logging.info(Path.cwd())
+    # f = open('files/test.txt', 'w')
+    # f.write(file.filename)
+    # f.close()
+    async with aiofiles.open(Path.cwd() / 'files' / file.filename, 'wb') as out_file:
+        content = await file.read()  # async read
+        await out_file.write(content)  # async write
     return {"filename": file.filename}
 
 
