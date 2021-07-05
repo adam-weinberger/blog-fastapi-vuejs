@@ -17,5 +17,4 @@ RUN pip install -r requirements.txt
 RUN apt-get update && apt-get install -y vim
 
 # copy project
-COPY src ./src
-COPY files ./files
+COPY backend .
